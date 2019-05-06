@@ -58,7 +58,7 @@ if (location.hash !== '') {
 
     let deleteButtonElement = document.createElement('button')
     deleteButtonElement.textContent = 'Delete Note'
-    deleteButtonElement.addEventListener('click', function () {
+    deleteButtonElement.addEventListener('click', function (event) {
         if (getConfirmation('Are You Sure To Delete The Note ?')) {
             removeNote(note_uuid)
         }

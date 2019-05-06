@@ -79,13 +79,15 @@ let removeNote = function (itemID) {
     //now delete the note from list
     if (noteIndexToDelete > -1) {
         listNote.splice(noteIndexToDelete, 1) //splice will remove item from list(start from index to delete ,second number indicate how many item should be deleted)
+        showWarningMessage(`Note Deleted.`)
     }
 
     //refresh the list after adding new note
     ShowTheListOfNotes(listNote, filters)
 
     //to save the Array in the local storage
-    localStorage.setItem('listNote', JSON.stringify(listNote))
+    //localStorage.setItem('listNote', JSON.stringify(listNote))
+    saveToLocalStorage()
 
 }
 
@@ -121,4 +123,9 @@ let getConfirmation = function (ConfirmMessage) {
         // document.write("CONFIRM CANCELED");
         return false;
     }
+}
+
+//===========show warning message===========
+function showWarningMessage(warningMessage) {
+    alert(warningMessage)
 }
