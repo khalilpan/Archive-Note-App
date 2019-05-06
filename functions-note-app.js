@@ -97,58 +97,12 @@ let AddNewNote = function (noteToAdd) {
     // ShowTheListOfNotes(listNote, filters)
 
     //to save the Array in the local storage
+    //localStorage.setItem('listNote', JSON.stringify(listNote))
+    saveToLocalStorage()
+
+}
+
+//to save the Array in the local storage
+let saveToLocalStorage = function () {
     localStorage.setItem('listNote', JSON.stringify(listNote))
-
-
 }
-
-
-//====================adding a new item to list by getting data from form=================================================
-let checkedElement = document.getElementById('form-newNote')
-
-if (checkedElement) {
-    checkedElement.addEventListener('submit', function (event) {
-        // debugger
-        event.preventDefault()  //to cancel default behaviour of submit button (refreshing the page and adding some infos in the address bar)
-        // console.log(event.target.elements.nameNewNote.value)
-
-        let tempNewNote = {
-            id: uuidv4(),
-            name: event.target.elements.nameNewNote.value,
-            description: event.target.elements.descriptionNewNote.value
-        }
-
-        AddNewNote(tempNewNote)
-
-        //to clear the form
-        event.target.elements.nameNewNote.value = ''
-        event.target.elements.descriptionNewNote.value = ''
-
-        location.assign(`\index.html`)
-    })
-}
-
-
-
-
-
-
-// document.querySelector('#form-newNote').addEventListener('submit', function (event) {
-//     // debugger
-//     event.preventDefault()  //to cancel default behaviour of submit button (refreshing the page and adding some infos in the address bar)
-//     // console.log(event.target.elements.nameNewNote.value)
-
-//     let tempNewNote = {
-//         id: uuidv4(),
-//         name: event.target.elements.nameNewNote.value,
-//         description: event.target.elements.descriptionNewNote.value
-//     }
-
-//     AddNewNote(tempNewNote)
-
-//     //to clear the form
-//     event.target.elements.nameNewNote.value = ''
-//     event.target.elements.descriptionNewNote.value = ''
-
-//     location.assign(`\index.html`)
-// })
