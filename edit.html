@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div id="div-form">
+        <h2 id="label-cadastrar">Cadastrar Novo Note</h2>
+        <form id="form-newNote">
+            <label for="newNoteName">*Note Name : </label>
+            <input id="newNoteName" type="text" placeholder="Name of Note" name="nameNewNote" maxlength="100" required>
+            <br>
+            <br>
+            <label for="newNoteDescription">Description : </label>
+            <textarea id="newNoteDescription" rows="10" cols="50" maxlength="500" name="descriptionNewNote"></textarea>
+            <!-- <input id="newNoteDescription" type="text"> -->
+            <br>
+
+            <br>
+            <button type="submit">Submit</button>
+            <button type="button" id="go-back">Go Back</button>
+            <button type="reset">Clean</button>
+        </form>
+        </form>
+    </div>
+
+    <script src="uuid_generator_function.js"></script>
+
+    <script src="functions-note-app.js"></script>
+    <!-- <script src="note-app-javaScript.js"></script> -->
+    <script src="functions-edit.js"></script>
+
+</body>
+
+</html>

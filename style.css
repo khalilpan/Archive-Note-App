@@ -1,0 +1,29 @@
+#div-note-list {
+    padding: 10px;
+    margin: 10px auto;
+
+    box-sizing: border-box;
+    border-color: black;
+    border-style: solid;
+    background-color: bisque;
+}
+
+#div-form {
+    padding: 10px;
+    margin: 10px auto;
+
+    box-sizing: border-box;
+    border-color: black;
+    border-style: solid;
+    background-color: azure;
+}
+
+#label-cadastrar {
+    text-align: center;
+    color: darkblue;
+}
+
+#newNoteDescription {
+    
+
+}
