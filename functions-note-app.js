@@ -50,8 +50,10 @@ const ShowTheListOfNotes = function (notes, filterText) {
 
         //adding a event listener for each button
         newButton.addEventListener('click', function (event) {
-            removeNote(item.id)
-            ShowTheListOfNotes(notes, filterText)
+            if (getConfirmation('Are You Sure To Delete The Note ?')) {
+                removeNote(item.id)
+                ShowTheListOfNotes(notes, filterText)
+            }
         })
 
         //adding all the items to the DIV
@@ -105,4 +107,18 @@ let AddNewNote = function (noteToAdd) {
 //to save the Array in the local storage
 let saveToLocalStorage = function () {
     localStorage.setItem('listNote', JSON.stringify(listNote))
+}
+
+
+//===========confirmation message=============
+let getConfirmation = function (ConfirmMessage) {
+    var retVal = confirm(ConfirmMessage);
+    if (retVal == true) {
+        // document.write("CONFIRMED");
+        return true;
+    }
+    else {
+        // document.write("CONFIRM CANCELED");
+        return false;
+    }
 }

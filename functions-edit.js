@@ -59,7 +59,9 @@ if (location.hash !== '') {
     let deleteButtonElement = document.createElement('button')
     deleteButtonElement.textContent = 'Delete Note'
     deleteButtonElement.addEventListener('click', function () {
-        removeNote(note_uuid)
+        if (getConfirmation('Are You Sure To Delete The Note ?')) {
+            removeNote(note_uuid)
+        }
     })
     document.querySelector('#form-newNote').appendChild(deleteButtonElement)
 
