@@ -38,7 +38,7 @@ if (checkedElement) {
 
 
 //=========creating a go back button======================================
-document.querySelector('#go-back').addEventListener('click', function (event) {
+document.querySelector('#button-goback').addEventListener('click', function (event) {
     location.assign('\index.html')
 })
 
@@ -58,12 +58,15 @@ if (location.hash !== '') {
 
     let deleteButtonElement = document.createElement('button')
     deleteButtonElement.textContent = 'Delete Note'
+    deleteButtonElement.className = 'buttons'
+    deleteButtonElement.id = 'button-delete'
     deleteButtonElement.addEventListener('click', function (event) {
         if (getConfirmation('Are You Sure To Delete The Note ?')) {
             removeNote(note_uuid)
         }
     })
-    document.querySelector('#form-newNote').appendChild(deleteButtonElement)
+    //document.querySelector('#form-newNote').appendChild(deleteButtonElement)
+    document.querySelector('#div-buttons').appendChild(deleteButtonElement)
 
     document.querySelector('#newNoteName').value = noteToEdit.name
     document.querySelector('#newNoteDescription').value = noteToEdit.description

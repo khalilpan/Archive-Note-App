@@ -20,9 +20,6 @@ const LoadDataFromLocalStorage = function () {
 
 //=================filter with search box and show in the DIV tag============
 const ShowTheListOfNotes = function (notes, filterText) {
-    // let filters = {
-    //     searchText: ""
-    // }
 
     let filteredNotes = notes.filter(function (item) {
         return item.name.toLowerCase().includes(filterText.searchText.toLowerCase())
@@ -34,6 +31,12 @@ const ShowTheListOfNotes = function (notes, filterText) {
     filteredNotes.forEach(function (item, index) {
         //creting one div, that we will put all the elements of one note inside it
         let newDiv = document.createElement('div')
+        newDiv.className = 'item-note'
+        newDiv.style.border = '1px solid black';
+        newDiv.style.margin = '10px';
+
+
+
 
         //creating one check box for each note in list
         let newCheckbox = document.createElement(`input`)
@@ -45,21 +48,38 @@ const ShowTheListOfNotes = function (notes, filterText) {
         newElement.setAttribute('href', `\edit.html#${item.id}`)
 
         //one button for every note to delete
-        let newButton = document.createElement(`button`)
-        newButton.textContent = `Delete`
+        let buttondelete = document.createElement(`button`)
+        buttondelete.textContent = `Delete`
+        buttondelete.className = 'deleteButtons'
+        buttondelete.id = 'item-delete-button'
+
+
+        // buttondelete.style.display = 'flex'
+        // buttondelete.style.alignItems = 'right'
+        // buttondelete.style.justifyContent = 'right'
+        // buttondelete.style.display = 'block-'
+        // buttondelete.style.margin = '0'
+
 
         //adding a event listener for each button
-        newButton.addEventListener('click', function (event) {
+        buttondelete.addEventListener('click', function (event) {
             if (getConfirmation('Are You Sure To Delete The Note ?')) {
                 removeNote(item.id)
                 ShowTheListOfNotes(notes, filterText)
             }
         })
 
+
+        //i am using span to put the delete button inside and do float='right' to show the button in right part of DIV
+        let spanelemnt = document.createElement('span')
+        spanelemnt.appendChild(buttondelete)
+        spanelemnt.style.cssFloat = 'right'
+
+
         //adding all the items to the DIV
         newDiv.appendChild(newCheckbox)
         newDiv.appendChild(newElement)
-        newDiv.appendChild(newButton)
+        newDiv.appendChild(spanelemnt)
 
         document.querySelector('#div-note-list').appendChild(newDiv)
 
